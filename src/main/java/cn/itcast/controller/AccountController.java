@@ -46,9 +46,7 @@ public class AccountController {
         List<Account> list = accountService.findExist(username);
         if (null !=list&&list.size()>0){
             Account accountOne = list.get(0);
-            System.out.println(password);
-            System.out.println(accountOne.getPassword());
-            if(password!=accountOne.getPassword()){
+            if(!password.equals(accountOne.getPassword())){
                 return APIResult.createNg("密码错误");
             }
             if(0==accountOne.getState()){
