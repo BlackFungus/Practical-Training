@@ -10,4 +10,7 @@ public interface PersonDataService {
 
     public int updata(PersonData personData);
 
+    //向td_user_personaldata里插入一条数据
+    public int insert(Integer sid);
+
 }

@@ -1,7 +1,10 @@
 package cn.itcast.service;
 
 import cn.itcast.domain.Account;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 public interface AccountService {
@@ -15,4 +18,9 @@ public interface AccountService {
     //根据学号查询是否存在某一用户
     public List<Account> findExist2(Integer sid);
 
+    //向td_user_basic插入一条数据
+    public int insertUserBasic(@Param("username") String username, @Param("password")String password, @Param("sid")Integer sid);
+
+    //冻结、解冻用户
+    public int upDateState(Integer state);
 }

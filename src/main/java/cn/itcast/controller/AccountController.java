@@ -3,6 +3,7 @@ package cn.itcast.controller;
 
 import cn.itcast.domain.Account;
 import cn.itcast.service.AccountService;
+import cn.itcast.service.PersonDataService;
 import cn.itcast.tool.APIResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class AccountController {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private PersonDataService personDataService;
 
     /**
      * 查询
@@ -90,8 +94,21 @@ public class AccountController {
     @ResponseBody
     public APIResult register(@RequestParam("sid") Integer sid,@RequestParam("username") String username,@RequestParam("password") String password) {
 
+        int i = accountService.insertUserBasic(username, password, sid);
+        int j = personDataService.insert(sid);
 
-        return APIResult.createOKMessage("该学号可以用");
+        if(1==i&&1==j){
+            List<Account> list = accountService.findExist(username);
+            Account accountOne = list.get(0);
+            Map<String,Object> map = new HashMap<>();
+            map.put("username",accountOne.getUsername());
+            map.put("password",accountOne.getPassword());
+            map.put("sid",accountOne.getSid());
+            return APIResult.createOk(map);
+        }else{
+            return APIResult.createNg("注册失败");
+        }
+
     }
 
 

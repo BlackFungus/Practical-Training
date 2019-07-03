@@ -23,4 +23,9 @@ public class PersonDataServiceImpl implements PersonDataService {
     public int updata(PersonData personData){
         return personDataDao.updata(personData);
     }
+
+    @Override
+    public int insert(Integer sid) {
+        return personDataDao.insert(sid);
+    }
 }
