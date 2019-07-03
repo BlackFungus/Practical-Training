@@ -26,5 +26,9 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> findExist(String username){
         return accountDao.findExist(username);
     }
+    //根据学号查询是否存在某一用户
+    public List<Account> findExist2(Integer sid) {
+        return accountDao.findExist2(sid);
+    }
 
 }

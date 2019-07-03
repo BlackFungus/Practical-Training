@@ -62,7 +62,37 @@ public class AccountController {
         }
     }
 
+    @RequestMapping("/registerCheck")
+    @ResponseBody
+    public APIResult registerCheck(@RequestParam("username") String username){
 
+        List<Account> list = accountService.findExist(username);
+        if (null !=list&&list.size()>0){
+            return APIResult.createNg("该用户已存在");
+        }else{
+            return APIResult.createOKMessage("该用户名可以用");
+        }
+    }
+
+    @RequestMapping("/registerCheck2")
+    @ResponseBody
+    public APIResult registerCheck2(@RequestParam("sid") Integer sid){
+
+        List<Account> list = accountService.findExist2(sid);
+        if (null !=list&&list.size()>0){
+            return APIResult.createNg("该用户已存在");
+        }else{
+            return APIResult.createOKMessage("该学号可以用");
+        }
+    }
+
+    @RequestMapping("/register")
+    @ResponseBody
+    public APIResult register(@RequestParam("sid") Integer sid,@RequestParam("username") String username,@RequestParam("password") String password) {
+
+
+        return APIResult.createOKMessage("该学号可以用");
+    }
 
 
 //    /**

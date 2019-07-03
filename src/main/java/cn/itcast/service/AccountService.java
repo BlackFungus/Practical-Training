@@ -12,4 +12,7 @@ public interface AccountService {
     //查询是否存在某一用户，返回该用户的密码和状态码
     public List<Account> findExist(String username);
 
+    //根据学号查询是否存在某一用户
+    public List<Account> findExist2(Integer sid);
+
 }

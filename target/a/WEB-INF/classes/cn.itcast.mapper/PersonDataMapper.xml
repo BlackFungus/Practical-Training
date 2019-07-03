@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.dao.PersonDataDao">
+    <update id="updata" parameterType="PersonData">
+        update td_user_personaldata
+        <set>
+            <if test="null != name"> name =#{name},</if>
+            <if test="null != nativePlace">nativePlace=#{nativePlace},</if>
+            <if test="null != ID_No">ID_No=#{ID_No},</if>
+            <if test="null != Email">Email=#{Email},</if>
+            <if test="null != phoneNum">phoneNum=#{phoneNum},</if>
+            <if test="null != ClassNum">class=#{ClassNum},</if>
+            <if test="null != QQNum">QQNum=#{QQNum},</if>
+        </set>
+        where sid = #{sid}
+    </update>
+
+</mapper>
