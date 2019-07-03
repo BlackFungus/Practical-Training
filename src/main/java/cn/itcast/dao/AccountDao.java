@@ -22,6 +22,11 @@ public interface AccountDao {
     @Select("select * from td_user_basic")
     public List<Account> findAll();
 
+    //使用limit查询账户
+    @Select("select * from td_user_basic limit #{offset},#{rows}")
+    public List<Account> LimitFind(@Param("offset")Integer offset ,@Param("rows")Integer rows);
+
+
     //根据用户名查询是否存在某一用户
     @Select("select password,sid,username,state from td_user_basic where username = #{username}")
     public List<Account> findExist(String username);

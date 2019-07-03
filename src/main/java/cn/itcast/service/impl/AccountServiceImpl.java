@@ -55,4 +55,10 @@ public class AccountServiceImpl implements AccountService {
 
     }
 
+    @Override
+    public List<Account> LimitFind(Integer offset, Integer rows) {
+        return accountDao.LimitFind(offset * rows,rows);
+    }
+
+
 }

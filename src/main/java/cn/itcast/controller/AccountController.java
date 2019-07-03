@@ -43,6 +43,16 @@ public class AccountController {
         return "list";
     }
 
+    @RequestMapping("/limitFind")
+    @ResponseBody
+    public APIResult limitFind(@RequestParam("offset") Integer offset,@RequestParam("rows") Integer rows){
+        List<Account> list = accountService.LimitFind(offset, rows);
+        Map<String,Object> map = new HashMap<>();
+        map.put("list",list);
+        return APIResult.createOk(map);
+    }
+
+
     @RequestMapping("/login")
     @ResponseBody
     public APIResult login(@RequestParam("username") String username,@RequestParam("password") String password){

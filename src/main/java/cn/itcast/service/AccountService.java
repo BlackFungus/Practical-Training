@@ -23,4 +23,7 @@ public interface AccountService {
 
     //冻结、解冻用户
     public int upDateState(Integer state);
+
+    //使用limit查询账户
+    public List<Account> LimitFind(@Param("offset")Integer offset ,@Param("rows")Integer rows);
 }
