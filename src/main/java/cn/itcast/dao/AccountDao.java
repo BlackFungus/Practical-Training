@@ -15,11 +15,12 @@ import java.util.List;
 public interface AccountDao {
 
     //查询所有账户
-    @Select("select * from account")
+    @Select("select * from td_user_basic")
     public List<Account> findAll();
 
-    //保存账户信息
-    @Insert("insert into account (name,money) values (#{name},#{money})")
-    public void saveAccount(Account account);
+    //查询是否存在某一用户
+    @Select("select password,sid,username,state from td_user_basic where username = #{username}")
+    public List<Account> findExist(String username);
+
 
 }

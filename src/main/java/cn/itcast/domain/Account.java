@@ -3,41 +3,51 @@ package cn.itcast.domain;
 import java.io.Serializable;
 
 public class Account implements Serializable {
-    private Integer id;
-    private String name;
-    private Double money;
+    private Integer sid;
+    private String username;
+    private String password;
+    private Integer state;
 
 
-
-    public Integer getId() {
-        return id;
+    public Integer getSid() {
+        return sid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSid(Integer sid) {
+        this.sid = sid;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public Double getMoney() {
-        return money;
+    public String getPassword() {
+        return password;
     }
 
-    public void setMoney(Double money) {
-        this.money = money;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", money=" + money +
+        return "{" +
+                "sid:" + sid +
+                ", username:'" + username + '\'' +
+                ", password:'" + password + '\'' +
+                ", state:" + state +
                 '}';
     }
 }

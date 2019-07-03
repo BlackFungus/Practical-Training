@@ -9,7 +9,7 @@ public interface AccountService {
     //查询所有账户
     public List<Account> findAll();
 
-    //保存账户信息
-    public void saveAccount(Account account);
+    //查询是否存在某一用户，返回该用户的密码和状态码
+    public List<Account> findExist(String username);
 
 }

@@ -9,6 +9,6 @@
         <module name="bilibiliSSM" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="10" />
+    <bytecodeTargetLevel target="12" />
   </component>
 </project>
