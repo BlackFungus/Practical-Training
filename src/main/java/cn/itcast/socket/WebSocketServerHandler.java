@@ -82,15 +82,15 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<WebSocke
             case "SINGLE_SENDING":
                 chatService.singleSend(param, ctx);
                 break;
-            case "GROUP_SENDING":
-                chatService.groupSend(param, ctx);
-                break;
+//            case "GROUP_SENDING":
+//                chatService.groupSend(param, ctx);
+//                break;
             case "FILE_MSG_SINGLE_SENDING":
                 chatService.FileMsgSingleSend(param, ctx);
                 break;
-            case "FILE_MSG_GROUP_SENDING":
-                chatService.FileMsgGroupSend(param, ctx);
-                break;
+//            case "FILE_MSG_GROUP_SENDING":
+//                chatService.FileMsgGroupSend(param, ctx);
+//                break;
             default:
                 chatService.typeError(ctx);
                 break;

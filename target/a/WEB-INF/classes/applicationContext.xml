@@ -70,4 +70,23 @@
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
+
+    <context:component-scan base-package="cn.itcast.socket"/>
+
+    <!-- 把Netty的一些类服务器注册到Spring，方便处理和扩展 -->
+    <!-- 用于处理客户端连接请求 -->
+    <bean id="bossGroup" class="io.netty.channel.nio.NioEventLoopGroup"/>
+    <!-- 用于处理客户端I/O操作 -->
+    <bean id="workerGroup" class="io.netty.channel.nio.NioEventLoopGroup"/>
+    <!-- 服务器启动引导类 -->
+    <bean id="serverBootstrap" class="io.netty.bootstrap.ServerBootstrap" scope="prototype"/>
+    <!-- 自定义的Netty Websocket服务器 -->
+    <bean id="webSocketServer" class="cn.itcast.socket.WebSocketServer">
+        <property name="port" value="3333"/>
+        <property name="childChannelHandler" ref="webSocketChildChannelHandler" />
+    </bean>
+
+
+
+
 </beans>
