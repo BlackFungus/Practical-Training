@@ -57,7 +57,6 @@ public class AccountController {
             map.put("password",accountOne.getPassword());
             map.put("sid",accountOne.getSid());
             return APIResult.createOk(map);
-
         }else{
             return APIResult.createNg("该用户不存在");
         }
