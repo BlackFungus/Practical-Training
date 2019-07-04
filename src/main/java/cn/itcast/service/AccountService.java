@@ -2,9 +2,6 @@ package cn.itcast.service;
 
 import cn.itcast.domain.Account;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
-
-import javax.xml.crypto.Data;
 import java.util.List;
 
 public interface AccountService {

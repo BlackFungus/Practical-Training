@@ -26,6 +26,7 @@ public class AccountServiceImpl implements AccountService {
 
     //查询是否存在某一用户，返回该用户的密码和状态码
     public List<Account> findExist(String username){
+
         return accountDao.findExist(username);
     }
     //根据学号查询是否存在某一用户
@@ -42,7 +43,6 @@ public class AccountServiceImpl implements AccountService {
     public int upDateState(Integer sid) {
 
         List<Account> list = accountDao.findExist2(sid);
-
         Account accountOne = list.get(0);
 
         Integer i = accountOne.getState();

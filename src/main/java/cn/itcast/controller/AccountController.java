@@ -2,8 +2,10 @@ package cn.itcast.controller;
 
 
 import cn.itcast.domain.Account;
+import cn.itcast.domain.Denglu;
 import cn.itcast.service.AccountService;
 import cn.itcast.service.PersonDataService;
+import cn.itcast.service.aaaService;
 import cn.itcast.tool.APIResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +58,7 @@ public class AccountController {
             if(0==accountOne.getState()){
                 return APIResult.createNg("用户被冻结");
             }
-            Map<String,Object> map = new HashMap<>();
+            Map<String,Object> map = new HashMap<String,Object>();
             map.put("username",accountOne.getUsername());
             map.put("password",accountOne.getPassword());
             map.put("sid",accountOne.getSid());
@@ -100,7 +102,7 @@ public class AccountController {
         if(1==i&&1==j){
             List<Account> list = accountService.findExist(username);
             Account accountOne = list.get(0);
-            Map<String,Object> map = new HashMap<>();
+            Map<String,Object> map = new HashMap<String,Object>();
             map.put("username",accountOne.getUsername());
             map.put("password",accountOne.getPassword());
             map.put("sid",accountOne.getSid());
@@ -112,6 +114,32 @@ public class AccountController {
     }
 
 
+
+
+
+    @Autowired
+    private aaaService asdasd;
+
+    @RequestMapping("/bbb")
+    public APIResult qwe(@RequestParam("username")String username,@RequestParam("password") String password){
+        List<Denglu> list =asdasd.denglua(password);
+        if(null !=list&&list.size()>0){
+            Denglu iii=list.get(0);
+            Map<String,Object> map =new HashMap<>();
+            map.put("sid",iii.getSid());
+            map.put("username",iii.getUsername());
+            map.put("password",iii.getPassword());
+            if (password.equals(iii.getPassword())){
+                return APIResult.createOk(map);
+            }
+            else {
+                return APIResult.createNg("mimachuzai");
+            }
+        }
+        else{
+            return APIResult.createNg("false");
+        }
+    }
 //    /**
 //     * 保存
 //     * @param
