@@ -16,9 +16,9 @@
 <a href="account/findAll">测试查询</a>
 <h3>测试保存</h3>
 sid,tid,context,file
-<form action="topic/replyRelease" method="get">
+<form action="topic/release" method="get">
     sid：<input type="text" name="sid" /> <br />
-    tid：<input type="text" name="tid" /> <br />
+    title：<input type="text" name="title" /> <br />
     context:<input type="text" name="context" /> <br />
     file:<input type="text" name="file" /> <br />
     <input type="submit" value="保存" /><br />

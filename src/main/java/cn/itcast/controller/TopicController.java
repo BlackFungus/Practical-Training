@@ -23,7 +23,7 @@ public class TopicController {
 
     @RequestMapping("/release")
     @ResponseBody
-    public APIResult MakeTopicMain(@RequestParam("sid")Integer sid,  @RequestParam("tiile")String title, @RequestParam("context") String context, @RequestParam("file") String file){
+    public APIResult MakeTopicMain(@RequestParam("sid")Integer sid,  @RequestParam("title")String title, @RequestParam("context") String context, @RequestParam("file") String file){
         TopicMain topicMain = topicService.MakeTopicMain(sid,title,context,file);
         Map<String,Object> map = new HashMap<>();
         map.put("sid",topicMain.getSid());
