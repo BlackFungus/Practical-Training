@@ -15,7 +15,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.3.9.RELEASE</spring.version>
+    <spring.version>5.2.22.RELEASE</spring.version>
     <jackson.version>2.8.9</jackson.version>
     <mysqlconn.version>8.0.16</mysqlconn.version>
     <mybatis.version>3.4.4</mybatis.version>
